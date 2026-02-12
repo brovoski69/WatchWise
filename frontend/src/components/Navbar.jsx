@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Clapperboard } from 'lucide-react'; // Import the icon
 
 const Navbar = () => {
   const location = useLocation();
@@ -38,12 +39,20 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
-          <Link to="/" className="text-netflix-red text-4xl font-black tracking-tighter uppercase cursor-pointer hover:scale-105 transition-transform">
-            WATCHWISE
+          {/* LOGO SECTION */}
+          <Link to="/" className="flex items-center gap-3 group cursor-pointer">
+            {/* We use the SVG Icon here instead of the emoji.
+                'text-white' makes it pure white.
+                'fill-current' can optionally fill it if you want solid white.
+            */}
+            <Clapperboard className="w-10 h-10 text-white transform group-hover:rotate-12 group-hover:text-netflix-red transition-all duration-300" />
+            
+            <span className="text-netflix-red text-4xl font-black tracking-tighter uppercase drop-shadow-md group-hover:text-white transition-colors duration-300">
+              WATCHWISE
+            </span>
           </Link>
           
-          {/* Navigation with Animated Links */}
+          {/* Navigation */}
           <div className="flex items-center gap-8">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/favourites">My List</NavLink>
